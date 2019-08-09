@@ -6,6 +6,33 @@ Welcome to iXperience Full Stack 2019!
 
 ## Angular Firestore
 
+### Add FireStore as a provider
+
+Import Angular Firestore in app.module.ts and add it as a provider
+
+```ts
+
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+@NgModule({
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
+    AngularFireModule.initializeApp(environment.firebaseConfig) ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    AngularFirestore,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+
+```
+
 ### Create a Model
 
 Create a model which will be used to define our table / document structure
